@@ -50,26 +50,17 @@ def Login(request):
     })
 
 @csrf_protect
-def Registro(resquest):
+def Registro(request):
     form = Register_user()
-    if resquest.method == 'POST':
-        form = Register_user(resquest.POST)
+    if request.method == 'POST':
+        form = Register_user(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.contra = make_password(form.cleaned_data['contra'])
-            form.save()
+            user.set_password(form.cleaned_data['contra'])
+            user.save()
             return redirect('login')
-        print('error2')
-    else:
-        print('error')
 
-    return render(resquest, 'registro.html', {'form': form})
+    return render(request, 'registro.html', {'form': form})
 
 
 
-@csrf_protect
-def Logout(request):
-    logout(request)
-    response = render(request, 'login.html')
-    response.delete_cookie('sessionid')
-    return response

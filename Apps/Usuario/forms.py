@@ -4,11 +4,14 @@ from .models import Usuarios
 from django.contrib.auth.forms import AuthenticationForm
 
 
-class Register_user (forms.ModelForm):
+# En tu forms.py
+from django import forms
+from .models import Usuarios
+
+class Register_user(forms.ModelForm):
     class Meta:
         model = Usuarios
-        # al usar __all__ crear un form con todos los campos de mi modelo
-        fields = '__all__'
+        fields = ['nomusuario', 'correo', 'contra', 'celular']
 
 class Login_user(AuthenticationForm):
     class Meta:
