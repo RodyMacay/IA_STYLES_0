@@ -1,0 +1,212 @@
+* {
+    background-color: #F1DCDC;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    gap: 8px;
+}
+
+.footer {
+    grid-area: footer;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+.initial-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #939190;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #939190;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.scroll-to-top i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.logo .logo1 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #000000;
+    text-decoration: none;
+    background-color: #939190;
+}
+
+.logo .logo1 i {
+    background-color: #939190;
+}
+
+.logo {
+    background-color: #939190;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    background-color: #939190;
+}
+
+nav ul li {
+    margin: 0 15px;
+    background-color: #939190;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    background-color: #939190;
+}
+
+.search input {
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 28px;
+    background-color: #939190;
+}
+
+.profile img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.profile {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+/* Estilos de la página */
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el contenido en dos columnas */
+    gap: 18px;
+    margin: 18px 8% 18px 8%;
+}
+
+.product-image {
+    width: 100%; /* Ajusta el tamaño deseado */
+    border: 2px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Evita que la imagen se desborde */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.product-image img {
+    max-width: 100%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Para mantener la proporción */
+    display: block; /* Elimina el espacio en blanco debajo de la imagen */
+}
+
+.product-details {
+    /* Estilos para los detalles del producto a la derecha */
+    font-size: 18px;
+    color: #333;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centrar el contenido en el contenedor */
+    margin: 20px;
+}
+
+.product-details h1 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 0;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.product-details p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.product-details .price {
+    font-size: 24px;
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.product-details .description {
+    font-style: italic;
+}
+
+.product-details .features {
+    margin-top: 20px;
+}
+
+.product-details .features h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-details .features ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.product-details .features li {
+    margin: 5px 0;
+}
+
+.product-details .cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-details .cta a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.product-details .cta a:hover {
+    background-color: #e04444;
+}
+
+
+/* Comentarios */
+.comments {
+    margin-top: 20px; /* Agrega un espacio entre los detalles y los comentarios */
+    padding: 20px; /* Espaciado interno para los comentarios */
+    background-color: #f9f9f9; /* Fondo gris claro para comentarios */
+    border: 1px solid #ddd; /* Borde del área de comentarios */
+    border-radius: 8px;
+     }

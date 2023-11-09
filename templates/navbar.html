@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %} ?v=2">
+</head>
+<body>
+  <nav class="initial-nav">
+    <div class="logo">
+      <a href="{% url 'inicio' %}" class="logo1">
+        <i class="fa-solid fa-globe"></i> IA STYLES</a>
+    </div>
+    <ul>
+      <li>
+        <a class="inicio-link" href="{% url 'inicio' %}">Inicio</a>
+      </li>
+      <li>
+        <a class="mproductos-link" href="{% url 'MisProductos' %}">Mis Productos</a>
+      </li>
+      <li>
+        <a href="{% url 'vender' %}">Vender</a>
+      </li>
+      <li class="search">
+        <input type="text" placeholder="Buscar">
+      </li>
+      <li>
+        <a class="material-symbols-outlined">
+        contact_support</a>
+      </li>
+      <li class="notification">
+              <a class="material-symbols-outlined" id="notification-icon">notifications</a>
+              <div class="notification-dropdown">
+                  <ul>
+                      <li>Notificación 1</li>
+                      <li>Notificación 2</li>
+                      <li>Notificación 3</li>
+                  </ul>
+              </div>
+          </li>
+      <li class="profile">
+        <a href="">
+          <img src="{% static 'img/piccoro.png' %}" alt="Perfil">
+        </a>
+      </li>
+      <li class="logout">
+        <a href="{% url 'logout' %}" class="material-symbols-outlined">
+          logout
+        </a>
+      </li>
+    </ul>
+    <div class="scroll-to-top">
+      <span class="material-symbols-outlined">
+        arrow_circle_up
+      </span>
+    </div>
+  </nav>
+    <script src="{% static 'js/noti.js' %}"></script>
+    <script src="{% static 'js/scroll0.js' %}"></script>
+    {% block content  %}
+    {% endblock %}
+
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+* {
+  background-color: #F1DCDC; 
+}
+
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  gap: 8px;
+}
+
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Tamaño fijo de las cartas () */
+  gap: 22px;
+  margin: 18px 8% 18px 8%;
+}
+
+.card {
+  background-color: #d0ccca;
+  padding: 16px;
+  color: #333;
+  /* Tamaño fijo para las cartas */
+  width: 260px;
+  height: 350px;
+  border-radius: 30px;
+  border: 2px solid #333;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.footer {
+  grid-area: footer;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+}
+
+
+
+.card img {
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 10px;
+}
+
+.card h5 {
+  font-size: 16px; 
+  margin: 5px 0; 
+  background-color: transparent;
+  text-align: center;
+}
+
+.card p {
+  margin: 1px 0; 
+  background-color: transparent;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.card a {
+  display: block; 
+  color: #fff;
+  padding: 0px 20px;
+  text-decoration: none; 
+  border: 2px solid black;
+  border-radius: 5px; 
+  font-weight: bold;
+  margin-top: 5px; 
+  transition: background-color 0.3s;
+  text-align: center;
+  background-color: transparent;
+  color: black;
+}
+
+.card a:hover {
+  background-color: #F1DCDC;
+
+}
+/* Estilo para el enlace "Inicio" en la barra de navegación */
+.inicio-link {
+  text-decoration: none; /* Elimina la decoración de texto predeterminada */
+  font-size: 1em;
+  color: #000000;
+  font-weight: 600;
+  margin: 20px;
+  border-bottom: 6px solid #000000; /* Línea inferior fija */
+}

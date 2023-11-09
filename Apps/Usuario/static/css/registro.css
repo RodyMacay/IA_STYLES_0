@@ -1,0 +1,37 @@
+/* Aquí pega tu CSS existente */
+
+/* Agregar estilos específicos para la página de registro */
+.home {
+    background: url('./media/pexels-craig-adderley-1563356.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.content h2 {
+    color: #fff;
+    font-size: 2em;
+}
+
+.content form {
+    max-width: 440px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.input-box .input {
+    border: 2px solid #FF6633;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.input-box i {
+    left: 390px;
+}
+
+button {
+    background-color: #FF6633;
+    color: #fff;
+    border: 1px solid #FF6633;
+}
