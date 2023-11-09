@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'Apps.ReconocimientosDPrecio',
 
 ]
-#AUTH_USER_MODEL = 'Usuario.Usuarios'
+AUTH_USER_MODEL = 'Usuario.Usuarios'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Puedes ajustar esto según tus necesidades
 SESSION_SAVE_EVERY_REQUEST = True
 
