@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def Inicio (resquest):
-   return render(resquest, 'inicio.html')
+   return render(resquest, 'PublicacionDprendas/inicio.html')
 
 
 def Misproductos(resquest):
-    return render(resquest, 'MisProductos.html')
+    return render(resquest, 'PublicacionDprendas/MisProductos.html')

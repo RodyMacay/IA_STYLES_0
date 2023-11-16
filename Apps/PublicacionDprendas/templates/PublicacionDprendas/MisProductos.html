@@ -1,4 +1,4 @@
-{% extends './navbar.html' %}
+{% extends 'PublicacionDprendas/navbar.html' %}
 {% load static %}
 {% block content %}
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/MisProductos.css' %} ?v=2">
+  <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/MisProductos.css' %} ?v=2">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
   <title>Tu título aquí</title>
@@ -29,7 +29,7 @@
                 </ul>
               </div>
           </div>
-          <img src="{% static 'img/zapatos-cafes.webp' %}" alt="">
+          <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
           <h5>Zapatos color cafe</h5>
           <p class="p">$50</p>
           <p>estado: Nuevo</p>
@@ -47,7 +47,7 @@
                 </ul>
               </div>
           </div>
-          <img src="{% static 'img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
+          <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
           <h5>Chompa-Bariloche </h5>
           <p class="p">$20</p>
           <p>estado: Usado</p>
@@ -65,7 +65,7 @@
                 </ul>
               </div>
           </div>
-          <img src="{% static 'img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
+          <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
           <h5>Chompa-Bariloche </h5>
           <p class="p">$20</p>
           <p>estado: Usado</p>
@@ -75,7 +75,7 @@
     </div>
     <div class="footer">Pie de página</div>
   </div>
-  <script src="{% static 'js/menu.js' %}"></script>
+  <script src="{% static 'PublicacionDprendas/js/menu.js' %}"></script>
 </body>
 {% endblock %}
 </html>
