@@ -201,7 +201,7 @@ button {
     }
     body {
 
-      background-image: url("./../img/l.jpg");
+      background-image: url("../img/l.jpg");
       background-attachment: fixed;
       background-position: center;
       background-size: cover;

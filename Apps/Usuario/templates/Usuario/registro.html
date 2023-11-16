@@ -25,42 +25,57 @@
             <form method="post">
                 {% csrf_token %}
                 <h1> Registro </h1>
+                {% if form.errors %}
+    <div class="messages">
+        {% for field, errors in form.errors.items %}
+            {% if field == 'correo' %}
+                {% for error in errors %}
+                    <div class="alert alert-danger error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
                 <div class="input-box">
                     <span class="icon">
                         <i class="fa-solid fa-user"></i>
                     </span>
-                    <input type="text" class="input" name="nomusuario" placeholder="ingrese su usuario" autocomplete="off" required>
+                    <input type="text" class="input" name="username" placeholder="Ingrese su usuario" autocomplete="off" required>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <i class="fa-solid fa-envelope"></i>
                     </span>
-                    <input type="email" class="input" name="correo" placeholder="ingrese su correo" autocomplete="off" required>
+                    <input type="email" class="input" name="correo" placeholder="Ingrese su correo" autocomplete="off" required>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <i class="fa-solid fa-lock"></i>
                     </span>
-                    <input type="password" class="input" name="contra" placeholder="ingrese su contraseña" autocomplete="off" required>
+                    <input type="password" class="input" name="password1" placeholder="Ingrese su contraseña" autocomplete="off" required>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <i class="fa-solid fa-lock"></i>
                     </span>
-                    <input type="password" class="input" placeholder="confirmar su contraseña" autocomplete="off" required>
+                    <input type="password" class="input" name="password2" placeholder="Confirme su contraseña" autocomplete="off" required>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <i class="material-symbols-outlined">
                             call
                             </i>
-                            <input type="number" class="input" name="celular" placeholder="ingrese su numero celular" autocomplete="off" required>
+                            <input type="number" class="input" name="celular" placeholder="Ingrese su numero celular" autocomplete="off" required>
                     </span>
                 </div>
                 <button type="submit"> Registrar </button>
                 <div class="register-link">
-                    <p> Ya soy miembro?</p>
-                    <a href="./login.html">Inicia sesión ahora</a>
+                    <p> ¿Ya soy miembro?</p>
+                    <a href="login.html">Inicia sesión ahora</a>
                 </div>
             </form>
         </div>

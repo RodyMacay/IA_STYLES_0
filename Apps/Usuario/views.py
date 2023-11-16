@@ -1,66 +1,54 @@
-from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Usuarios
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from .models import Usuario
 from .forms import Register_user, Login_user
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
-from django.contrib.auth.hashers import make_password, check_password
-from django.utils.datastructures import MultiValueDictKeyError
-from django.contrib.sessions.models import Session
 
-
-@csrf_protect
 def Login(request):
     mensaje_error = ''
     if request.method == 'POST':
-        try:
-            nomusuario = request.POST['nomusuario']
-            contra = request.POST['contra']
-        except MultiValueDictKeyError:
-            mensaje_error = 'Campos de formulario incompletos.'
-            return render(request, 'login.html', {'mensaje_error': mensaje_error})
+        form = Login_user(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
 
-        try:
-            user = Usuarios.objects.get(nomusuario=nomusuario)
-            print(user)
-            if user.check_password(contra):
+            if user is not None:
                 login(request, user)
                 next_url = request.POST.get('next') or '/'
-                print(next_url, 'recibido desde POST')
-                # La contraseña es válida, redirige al usuario a la página de inicio.
                 return redirect(next_url)
             else:
-                mensaje_error = 'Contraseña incorrecta.'
-                print('Contraseña incorrecta.')
-        except Usuarios.DoesNotExist:
-            mensaje_error = 'El usuario no existe.'
-            print('Usuario no existe.')
+                mensaje_error = 'Credenciales inválidas.'
+    else:
+        form = Login_user()
+
+    return render(request, 'Usuario/login.html', {'form': form, 'mensaje_error': mensaje_error})
 
 
 
-    next_url = request.GET.get('next')
-    print('la url es \n', next_url)
-    return render(request, 'login.html', {
-        'mensaje_error': mensaje_error,
-        'next': next_url
-    })
+from django.contrib.auth import authenticate, login
+from .forms import Register_user
 
-@csrf_protect
 def Registro(request):
-    form = Register_user()
     if request.method == 'POST':
         form = Register_user(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['contra'])
-            user.save()
-            return redirect('login')
+            # Verifica si el correo electrónico ya está registrado
+            if Usuario.objects.filter(correo=form.cleaned_data['correo']).exists():
+                form.add_error('correo', 'Este correo electrónico ya está registrado.')
+            else:
+                # Utiliza 'password1' para establecer la contraseña del usuario
+                user = form.save(commit=False)
+                user.set_password(form.cleaned_data['password1'])
+                user.save()
 
-    return render(request, 'registro.html', {'form': form})
+                # Autentica y realiza el inicio de sesión
+                user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+                login(request, user)
 
+                return redirect('login')
+    else:
+        form = Register_user()
+        print('hubo un error')
+    return render(request, 'Usuario/registro.html', {'form': form})
 
 

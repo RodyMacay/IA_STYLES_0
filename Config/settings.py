@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'Apps.ReconocimientosDPrecio',
 
 ]
-AUTH_USER_MODEL = 'Usuario.Usuarios'
+AUTH_USER_MODEL = 'Usuario.Usuario'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Puedes ajustar esto según tus necesidades
 SESSION_SAVE_EVERY_REQUEST = True
 
@@ -129,7 +129,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+USERNAME_FIELD = 'nomusuario'
