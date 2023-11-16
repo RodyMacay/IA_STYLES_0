@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% extends 'PublicacionDprendas/navbar.html' %}
+    {% load static %}
+    {% block content %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/detalle.css' %} ?v=2 ">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
+  <title>Tu título aquí</title>
+</head>
+<body>
+  <div class="layout">
+    <div class="main">
+      <div class="product-container">
+        <div class="product-image">
+          <!-- Imagen del producto -->
+          <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
+        </div>
+        <div class="product-details">
+          <!-- Detalles del producto -->
+          <h1>Zapatos Deportivos Nike Air Max 2022</h1>
+          <p class="price">Precio: $99.99</p>
+          <p class="description">
+            Los zapatos deportivos Nike Air Max 2022 son la elección perfecta para los amantes del deporte y la comodidad. Con su diseño elegante y tecnología avanzada, te brindarán una experiencia de carrera inigualable.
+          </p>
+          <p class="description">
+            Estado: Nuevo
+          </p>
+          <p class="features">
+            <strong>Características:</strong>
+            <ul class="l">
+              <li>Tallas disponibles: 36-45</li>
+              <li>Material superior: Malla transpirable y cuero sintético</li>
+              <li>Suela: Goma resistente con tecnología Air Max</li>
+              <li>Cierre: Cordones</li>
+              <li>Adecuado para: Correr, entrenamiento, deportes al aire libre</li>
+            </ul>
+          </p>
+          <div class="cta">
+            <button>
+              <a href="https://wa.me/0981975806" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+              </a>
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="comments">
+        <!-- Comentarios sobre el producto -->
+        <h2>Comentarios</h2>
+        <div class="comment">
+          <p>Usuario 1: Excelente producto.</p>
+        </div>
+        <div class="comment">
+          <p>Usuario 2: Me encanta, lo recomiendo.</p>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="footer">Pie de página</div>
+    </div>
+  </body>
+    {% endblock %}
+  </html>

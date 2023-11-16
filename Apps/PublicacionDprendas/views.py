@@ -9,3 +9,6 @@ def Inicio (resquest):
 
 def Misproductos(resquest):
     return render(resquest, 'PublicacionDprendas/MisProductos.html')
+
+def Detalle (request):
+    return render(request, 'PublicacionDprendas/Detalle.html')

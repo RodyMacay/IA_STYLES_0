@@ -23,8 +23,6 @@ def Login(request):
 
     return render(request, 'Usuario/login.html', {'form': form, 'mensaje_error': mensaje_error})
 
-
-
 from django.contrib.auth import authenticate, login
 from .forms import Register_user
 
