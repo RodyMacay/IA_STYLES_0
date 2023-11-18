@@ -16,7 +16,26 @@
   <div class="layout">
       <div class="main">
         <div class="cards-container">
-
+             {% for producto in productos %}
+            <div class="card">
+            <div class="menu-icon">
+              <span class="material-symbols-outlined">
+                menu
+              </span>
+              <div class="options">
+                <ul>
+                  <li><a href="#"> Editar</a></li>
+                  <li><a href="#">Eliminar</a></li>
+                </ul>
+              </div>
+          </div>
+          <img src="{{ producto.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{producto.DetalleIA.descripcion }}">
+          <h5>{{ producto.DetalleIA.descripcion}}</h5>
+          <p class="p">{{producto.DetalleIA.precio}}</p>
+          <p>estado: {{ producto.DetalleIA.condicion }}</p>
+          <a href="./Detalle.html">Ver</a>
+             {% endfor %}
+        </div>
           <div class="card">
             <div class="menu-icon">
               <span class="material-symbols-outlined">

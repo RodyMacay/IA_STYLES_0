@@ -21,7 +21,9 @@
                 Por favor, sube tres imágenes de tu producto: Frontal, Lateral y Trasera. Asegúrate de que cada imagen tenga una resolución mínima de 1920x1080 píxeles y esté en formato JPG o PNG.
               </p>
               <!-- Carga de imágenes -->
-              <input type="file" accept="image/jpeg, image/png" id="image-upload" multiple>
+            <form method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+              <input type="file" name="ImagenDprenda" accept="image/jpeg, image/png" id="image-upload">
               <label for="image-upload">
                 <i class="fa fa-upload"></i> Subir Imágenes
               </label>
@@ -29,6 +31,7 @@
 
               <!-- Botón para enviar imágenes -->
               <button id="submit-images">Enviar Imágenes</button>
+            </form>
             </div>
             <div class="product-details">
               <div id="ai-details-container">
