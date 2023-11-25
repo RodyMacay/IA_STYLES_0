@@ -4,7 +4,7 @@ from ..Usuario.models import Perfil
 # Create your models here.
 class Imagenes (models.Model):
     ImagenDprenda=models.ImageField(upload_to=imgPrenda_media_path, null=True, blank=True)
-    usuario =models.OneToOneField(Perfil, on_delete=models.CASCADE, null=True, unique=False)
+    usuario =models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 class DetalleIA(models.Model):
     marca = models.CharField(max_length=50)
     talla =models.IntegerField(null=True, default=None)

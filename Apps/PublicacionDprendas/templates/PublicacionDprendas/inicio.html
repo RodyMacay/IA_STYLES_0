@@ -20,7 +20,7 @@
       <h5>{{ dato.DetalleIA.descripcion }}</h5>
       <p class="p">${{ dato.DetalleIA.precio }}</p>
       <p>estado: {{ dato.DetalleIA.condicion }}</p>
-      <a href="./Detalle.html">Ver</a>
+      <a href="{% url 'detalle' %}">Ver</a>
     </div>
   {% endfor %}
     <div class="card">

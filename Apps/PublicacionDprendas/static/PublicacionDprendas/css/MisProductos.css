@@ -17,13 +17,6 @@
 
 
 
-.main {
-  grid-area: main;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Tamaño fijo de las cartas (200px) */
-  gap: 22px;
-  margin: 18px 8% 18px 8%;
-}
 
 .card {
   background-color: #d0ccca;
@@ -47,9 +40,116 @@
   background-color: #333;
   color: #fff;
 }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #d0ccca;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+.initial-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color:  #d0ccca;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+
+  transition: all 0.3s;
+}
 
 
-  /* Estilo para el enlace "Mis productos" en la barra de navegación */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d0ccca;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.scroll-to-top i {
+  font-size: 24px;
+  color: #fff;
+}
+
+.logo .logo1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  background-color: #d0ccca;
+}
+.logo .logo1 i {
+  background-color: #d0ccca;
+}
+.logo{
+  background-color: #d0ccca;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  background-color: #d0ccca;
+}
+
+nav ul li {
+  margin: 0 15px;
+  background-color: #d0ccca;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  background-color: #d0ccca;
+  position: relative;
+
+}
+nav ul li a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color:  #000000;
+  border-radius: 5px;
+  bottom: -6px;
+  transform: scaleX(0);
+  transition: .5s;
+}
+nav ul li a:hover::after{
+  transform: scaleX(1);
+}
+
+.search input {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 28px;
+  background-color: #d0ccca;
+}
+
+.profile img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.profile {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.logout {
+  padding-right: 20px;
+}
+
+  /* Estilo para el enlace "Inicio" en la barra de navegación */
   .mproductos-link {
     text-decoration: none; /* Elimina la decoración de texto predeterminada */
     font-size: 1em;

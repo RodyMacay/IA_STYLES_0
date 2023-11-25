@@ -1,41 +1,42 @@
 {% extends 'PublicacionDprendas/navbar.html' %}
 {% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/MisProductos.css' %} ?v=2">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
-  <title>Tu título aquí</title>
-</head>
-<body>
-{% csrf_token %}
-  <div class="layout">
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/MisProductos.css' %} ?v=2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
+    <title>Tu título aquí</title>
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="layout">
       <div class="main">
         <div class="cards-container">
-             {% for producto in productos %}
+          {% for producto in productos %}
             <div class="card">
-            <div class="menu-icon">
-              <span class="material-symbols-outlined">
-                menu
-              </span>
-              <div class="options">
-                <ul>
-                  <li><a href="#"> Editar</a></li>
-                  <li><a href="#">Eliminar</a></li>
-                </ul>
+              <div class="menu-icon">
+                <span class="material-symbols-outlined">
+                  menu
+                </span>
+                <div class="options">
+                  <ul>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Eliminar</a></li>
+                  </ul>
+                </div>
               </div>
-          </div>
-          <img src="{{ producto.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{producto.DetalleIA.descripcion }}">
-          <h5>{{ producto.DetalleIA.descripcion}}</h5>
-          <p class="p">{{producto.DetalleIA.precio}}</p>
-          <p>estado: {{ producto.DetalleIA.condicion }}</p>
-          <a href="./Detalle.html">Ver</a>
-             {% endfor %}
-        </div>
+              <img src="{{ producto.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{producto.DetalleIA.descripcion }}">
+              <h5>{{ producto.DetalleIA.descripcion}}</h5>
+              <p class="p">$ {{producto.DetalleIA.precio}}</p>
+              <p>estado: {{ producto.DetalleIA.condicion }}</p>
+              <a href="./Detalle.html">Ver</a>
+            </div>
+          {% endfor %}
           <div class="card">
             <div class="menu-icon">
               <span class="material-symbols-outlined">
@@ -43,58 +44,40 @@
               </span>
               <div class="options">
                 <ul>
-                  <li><a href="#"> Editar</a></li>
+                  <li><a href="#">Editar</a></li>
                   <li><a href="#">Eliminar</a></li>
                 </ul>
               </div>
+            </div>
+            <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
+            <h5>Zapatos color cafe</h5>
+            <p class="p">$50</p>
+            <p>estado: Nuevo</p>
+            <a href="./Detalle.html">Ver</a>
           </div>
-          <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
-          <h5>Zapatos color cafe</h5>
-          <p class="p">$50</p>
-          <p>estado: Nuevo</p>
-          <a href="./Detalle.html">Ver</a>
-        </div>
-        <div class="card">
-          <div class="menu-icon">
-            <span class="material-symbols-outlined">
-              menu
+          <div class="card">
+            <div class="menu-icon">
+              <span class="material-symbols-outlined">
+                menu
               </span>
               <div class="options">
                 <ul>
-                  <li><a href="#"> Editar</a></li>
+                  <li><a href="#">Editar</a></li>
                   <li><a href="#">Eliminar</a></li>
                 </ul>
               </div>
+            </div>
+            <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
+            <h5>Chompa-Bariloche </h5>
+            <p class="p">$20</p>
+            <p>estado: Usado</p>
+            <a href="./Detalle.html">Ver</a>
           </div>
-          <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
-          <h5>Chompa-Bariloche </h5>
-          <p class="p">$20</p>
-          <p>estado: Usado</p>
-          <a href="./Detalle.html">Ver</a>
         </div>
-        <div class="card">
-          <div class="menu-icon">
-            <span class="material-symbols-outlined">
-              menu
-              </span>
-              <div class="options">
-                <ul>
-                  <li><a href="#"> Editar</a></li>
-                  <li><a href="#">Eliminar</a></li>
-                </ul>
-              </div>
-          </div>
-          <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
-          <h5>Chompa-Bariloche </h5>
-          <p class="p">$20</p>
-          <p>estado: Usado</p>
-          <a href="./Detalle.html">Ver</a>
-        </div>
-        </div>
+      </div>
+      <div class="footer">Pie de página</div>
     </div>
-    <div class="footer">Pie de página</div>
-  </div>
-  <script src="{% static 'PublicacionDprendas/js/menu.js' %}"></script>
-</body>
+    <script src="{% static 'PublicacionDprendas/js/menu.js' %}"></script>
+  </body>
+  </html>
 {% endblock %}
-</html>
