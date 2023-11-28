@@ -49,4 +49,5 @@ def Registro(request):
         print('hubo un error')
     return render(request, 'Usuario/registro.html', {'form': form})
 
-
+def Perfil (request):
+    return render(request, 'Usuario/perfil.html')
