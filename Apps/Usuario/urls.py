@@ -6,5 +6,6 @@ urlpatterns = [
 path('', views.Login, name="login"),
 path('registro/', views.Registro, name="registro"),
 path('login/', LogoutView.as_view(template_name='Usuario/login.html'), name='logout'),
-path ('perfil/', login_required(views.Perfil), name='perfil')
+path ('perfil/', login_required(views.PerfilUser), name='perfil'),
+path('editarPerfil', login_required(views.Editar_perfil), name='editar_perfil')
 ]

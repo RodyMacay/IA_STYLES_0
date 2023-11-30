@@ -6,6 +6,12 @@ class Imagenes (models.Model):
     ImagenDprenda=models.ImageField(upload_to=imgPrenda_media_path, null=True, blank=True)
     usuario =models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.image = None
+
+
     def __str__(self):
         return f'{self.ImagenDprenda}'
 class DetalleIA(models.Model):

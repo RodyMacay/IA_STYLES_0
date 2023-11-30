@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Apps.Usuario',
     'Apps.PublicacionDprendas',
     'Apps.ReconocimientosDPrecio',
+    'Apps.IA_models',
 
 ]
 AUTH_USER_MODEL = 'Usuario.Usuario'
@@ -141,3 +142,4 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 USERNAME_FIELD = 'nomusuario'
+ML_MODELS_DIR = os.path.join(BASE_DIR, 'IA_models')

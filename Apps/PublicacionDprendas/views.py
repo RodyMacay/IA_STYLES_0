@@ -1,7 +1,3 @@
-from django.shortcuts import render
-from .models import Publicacion
-# Create your views here.
-
 
 from django.shortcuts import render
 from .models import Publicacion
@@ -10,7 +6,6 @@ from ..Usuario.models import Perfil
 
 def Inicio(request):
     datos = Publicacion.objects.all()
-
     for dato in datos:
         print(f"Nombre: {dato.DetalleIA.descripcion}, Precio: {dato.DetalleIA.precio}, Estado: {dato.DetalleIA.condicion}")
         if dato.DetalleIA.imagen.ImagenDprenda:
@@ -29,6 +24,5 @@ def Misproductos(resquest):
     print(productos)
     return render(resquest, 'PublicacionDprendas/MisProductos.html',
                   {'productos': productos})
-
-def Detalle (request):
+def Detalle(request):
     return render(request, 'PublicacionDprendas/Detalle.html')

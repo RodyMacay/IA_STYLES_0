@@ -12,9 +12,16 @@
  <title>Tu título aquí</title>
 </head>
 <body>
+    {% if messages %}
+    <ul id="messages-container" class="messages">
+         {% for mensajes in messages %}
+            <li {% if mensajes.tags %} class="mensaje"{% endif %}>{{ mensajes }}</li>
+            {% endfor %}
+     </ul>
+    {% endif %}
     {% csrf_token %}
   <div class="main">
-      {% for dato in datos %}
+   {% for dato in datos %}
     <div class="card">
       <img src="{{ dato.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{ dato.DetalleIA.descripcion }}">
       <h5>{{ dato.DetalleIA.descripcion }}</h5>
@@ -22,55 +29,11 @@
       <p>estado: {{ dato.DetalleIA.condicion }}</p>
       <a href="{% url 'detalle' %}">Ver</a>
     </div>
-  {% endfor %}
-    <div class="card">
-      <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
-      <h5>Zapatos color cafe</h5>
-      <p class="p">$50</p>
-      <p>estado: Nuevo</p>
-      <a href="./Detalle.html">Ver</a>
+   {% endfor %}
     </div>
-    <div class="card">
-      <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
-      <h5>Chompa-Bariloche </h5>
-      <p class="p">$20</p>
-      <p>estado: Usado</p>
-      <a href="./Detalle.html">Ver</a>
+    <div class="footer">Pie de página</div>
     </div>
-    <div class="card">
-      <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
-      <h5>Chompa-Bariloche </h5>
-      <p class="p">$20</p>
-      <p>estado: Usado</p>
-      <a href="./Detalle.html">Ver</a>
-    </div>
-    <div class="card">
-      <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
-      <h5>Zapatos color cafe</h5>
-      <p class="p">$50</p>
-      <p>estado: Nuevo</p>
-      <a href="./Detalle.html">Ver</a>
-    </div>
-    <div class="card">
-      <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
-      <h5>Chompa-Bariloche </h5>
-      <p class="p">$20</p>
-      <p>estado: Usado</p>
-      <a href="./Detalle.html">Ver</a>
-    </div>
-    <div class="card">
-      <img src="{% static 'PublicacionDprendas/img/CH017-Chompa-Bariloche-Premium-real-800x800.webp' %}" alt="">
-      <h5>Chompa-Bariloche </h5>
-      <p class="p">$20</p>
-      <p>estado: Usado</p>
-      <a href="./Detalle.html">Ver</a>
-    </div>
- 
-
-    <!-- Agrega más cartas si es necesario -->
-  </div>
-  <div class="footer">Pie de página</div>
-</div>
+    <script src="{% static 'Usuario/js/Mensaje.js' %}"></script>
+    {% endblock %}
 </body>
-{% endblock %}
 </html>

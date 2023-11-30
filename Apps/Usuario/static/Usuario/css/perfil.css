@@ -1,6 +1,6 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color:  #d0ccca;
+  background-color: #d0ccca;
   margin: 0;
   padding: 0;
   display: flex;
@@ -16,6 +16,8 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  width: 400px; /* Ajusta el ancho según tus necesidades */
+  margin-top: 50px; /* Ajusta el margen desde la parte superior */
 }
 
 .profile-header {
@@ -24,13 +26,13 @@ body {
   text-align: center; /* Centra el contenido horizontalmente */
   background-color: #F1DCDC;
 }
+
 .profile-img {
   border-radius: 50%;
   width: 100px;
   height: 100px;
   object-fit: cover;
   margin-bottom: 10px;
-
 }
 
 .profile-name {
@@ -60,6 +62,7 @@ body {
 .info-value {
   margin-left: 10px;
 }
+
 .back-button-container {
   position: absolute;
   top: 10px;
@@ -69,7 +72,7 @@ body {
 .back-button {
   display: block;
   padding: 10px;
-  background-color:  #d0ccca;
+  background-color: #d0ccca;
   color: #000000;
   text-decoration: none;
   border-radius: 5px;
@@ -86,4 +89,3 @@ body {
   top: 10px;
   right: 10px;
 }
-

@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
-from .models import Usuario
+from .models import Usuario, Perfil
 from .forms import Register_user, Login_user
 
 def Login(request):
@@ -49,5 +49,15 @@ def Registro(request):
         print('hubo un error')
     return render(request, 'Usuario/registro.html', {'form': form})
 
-def Perfil (request):
-    return render(request, 'Usuario/perfil.html')
+def PerfilUser (request):
+    perfil = get_object_or_404(Perfil,usuario=request.user)
+    print(perfil)
+    return render(request, 'Usuario/perfil.html', {
+        'datos':perfil
+    })
+def Editar_perfil (request):
+    perfil = get_object_or_404(Perfil, usuario=request.user)
+    return render(request, 'Usuario/editar_perfil.html',
+                  {
+                      'perfil' : perfil
+                  })

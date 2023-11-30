@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Perfil</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="{% static 'Usuario/css/perfil.css' %}">
+  <link rel="stylesheet" href="{% static 'Usuario/css/perfil.css' %}? v=2">
 </head>
 <body>
   <div class="profile-container">
@@ -15,30 +15,37 @@
         <a href="{% url 'inicio' %}" class="back-button">Atrás</a>
       </div>
       <div class="edit-profile">
-        <a href="{% url 'inicio' %}"><i class="fas fa-pencil-alt" ></i>
+        <a href="{% url 'editar_perfil' %}"><i class="fas fa-pencil-alt" ></i>
         </a>
       </div>
-      <img class="profile-img" src="{% static 'Usuario/img/piccoro.png' %}" alt="Perfil">
-      <div class="profile-name">Tu Nombre</div>
+      {% if not datos.imagen %}
+    <img class="profile-img" src="{% static 'Usuario/img/piccoro.png' %}" alt="Perfil">
+      {% else %}
+    <img class="profile-img" src="{{ datos.imagen.url }}" alt="Perfil">
+      {% endif %}
+
+      <div class="profile-name">{{ datos.usuario.username }}</div>
       <div class="profile-title">Desarrollador Web</div>
     </div>
     <div class="profile-info">
       <div class="info-item">
-        <span class="info-label">Edad:</span>
-        <span class="info-value">25</span>
-      </div>
-      <div class="info-item">
+          {% if not datos.provincia and datos.provincia %}
         <span class="info-label">Ubicación:</span>
-        <span class="info-value">Ciudad, País</span>
+        <span class="info-value"></span>
+          {% else %}
+        <span class="info-label">Ubicación:</span>
+        <span class="info-value">{{ datos.ciudad }}, {{ datos.provincia }}</span>
+          {% endif %}
       </div>
       <div class="info-item">
         <span class="info-label">Correo:</span>
-        <span class="info-value">correo@example.com</span>
+        <span class="info-value">{{ datos.usuario.correo }}</span>
       </div>
       <div class="info-item">
-        <span class="info-label">Sitio Web:</span>
-        <span class="info-value"><a href="https://www.tusitio.com" target="_blank">www.tusitio.com</a></span>
+        <span class="info-label">Numero Celular:</span>
+        <span class="info-value">{{ datos.usuario.celular }}</span>
       </div>
+
     </div>
   </div>
 </body>

@@ -3,7 +3,7 @@
 {% load static %}
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/navbar.css' %} ? v=2">
+  <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/navbar.css' %}?v=2">
 </head>
 <body>
   <nav class="initial-nav">
@@ -19,7 +19,7 @@
         <a class="mproductos-link" href="{% url 'MisProductos' %}">Mis Productos</a>
       </li>
       <li>
-        <a href="{% url 'vender' %}">Vender</a>
+        <a class="link-vender" href="{% url 'vender' %}">Vender</a>
       </li>
       <li class="search">
         <input type="text" placeholder="Buscar">

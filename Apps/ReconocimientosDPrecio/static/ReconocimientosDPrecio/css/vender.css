@@ -1,7 +1,6 @@
 * {
     background-color: #F1DCDC;
 }
-
 .layout {
     display: grid;
     grid-template-columns: 1fr;
@@ -12,7 +11,6 @@
         "footer";
     gap: 8px;
 }
-
 .footer {
     grid-area: footer;
     position: fixed;
@@ -21,107 +19,6 @@
     background-color: #333;
     color: #fff;
 }
-
-.initial-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #d0ccca;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: all 0.3s;
-}
-
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #d0ccca;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.scroll-to-top i {
-    font-size: 24px;
-    color: #fff;
-}
-
-.logo .logo1 {
-    font-size: 2em;
-    font-weight: 700;
-    color: #000000;
-    text-decoration: none;
-    background-color: #d0ccca;
-}
-
-.logo .logo1 i {
-    background-color: #d0ccca;
-}
-
-.logo {
-    background-color: #d0ccca;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    background-color: #d0ccca;
-  }
-
-  nav ul li {
-    margin: 0 15px;
-    background-color: #d0ccca;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-    background-color: #d0ccca;
-    position: relative;
-
-  }
-  nav ul li a::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color:  #000000;
-    border-radius: 5px;
-    bottom: -6px;
-    transform: scaleX(0);
-    transition: .5s;
-  }
-  nav ul li a:hover::after{
-    transform: scaleX(1);
-  }
-
-.search input {
-    padding: 10px;
-    border: 2px solid #333;
-    border-radius: 28px;
-    background-color: #d0ccca;
-}
-
-.profile img {
-    width: 40px;
-    border-radius: 50%;
-}
-
-.profile {
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
 /* Estilos de la página */
 .main {
     grid-area: main;
@@ -130,14 +27,12 @@ nav ul {
     gap: 18px;
     margin: 18px 8% 18px 8%;
   }
-
   .container-img {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
-
   .product-image {
     width: 50%;
     border: 2px solid #ddd;
@@ -145,13 +40,11 @@ nav ul {
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-
   .product-image img {
     max-width: 100%;
     height: auto;
     display: block;
   }
-
   .product-details {
     width: 50%;
     font-size: 18px;
@@ -163,42 +56,6 @@ nav ul {
     text-align: center;
     margin: 20px;
   }
-  .product-details p {
-
-    background-color: #d0ccca;
-
-  }
-
-  .product-details h1  {
-    background-color: #d0ccca;
-  }
-  .product-details .features strong {
-
-    background-color: #d0ccca;
-
-  }
-  .product-details  .l {
-
-    background-color: #d0ccca;
-
-  }
-  .product-details  .l li {
-
-    background-color: #d0ccca;
-
-  }
-  .cta  {
-
-    background-color: #d0ccca;
-
-  }
-  .cta a {
-
-    background-color: #d0ccca;
-
-  }
-
-
 .vender-link {
     text-decoration: none; /* Elimina la decoración de texto predeterminada */
     font-size: 1em;
@@ -206,28 +63,6 @@ nav ul {
     font-weight: 600;
     margin: 20px;
     border-bottom: 6px solid #000000; /* Línea inferior fija */
-      }
-
-      .product-image {
-        position: relative;
-      }
-
-      .upload-button {
-        display: inline-block;
-        background-color: #3498db;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .upload-button:hover {
-        background-color: #2980b9;
-      }
-
-      #image-upload {
-        display: none;
       }
 
 /* Estilos para la introducción al usuario */
@@ -294,7 +129,7 @@ nav ul {
     border-radius: 5px;
   }
 
-  /* Estilos para los botones "Atrás", "Editar" y "Publicar" */
+
 #back-button, #edit-button, #publish-button {
     background-color: #d0ccca;
     color: #000000;
@@ -322,15 +157,7 @@ nav ul {
     color: #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  #ai-details-container p {
-    background-color:  #F1DCDC;
 
-  }
-
-  /* Estilos para el contenido del contenedor */
-  #ai-details-container p {
-    margin: 10px 0;
-  }
   .mensaje{
       background-color: #f8d7da;
       color: #721c24;
@@ -338,3 +165,11 @@ nav ul {
       padding: 10px;
       margin: 10px 0;
   }
+  .link-vender {
+    text-decoration: none; /* Elimina la decoración de texto predeterminada */
+    font-size: 1em;
+    color: #000000;
+    font-weight: 600;
+    margin: 20px;
+    border-bottom: 6px solid #000000;
+   }

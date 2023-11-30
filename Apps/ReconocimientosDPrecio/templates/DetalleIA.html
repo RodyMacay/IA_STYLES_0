@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'ReconocimientosDPrecio/css/detalleIA.css' %}? v=2 ">
+  <link rel="stylesheet" href="{% static 'ReconocimientosDPrecio/css/detalleIA.css' %}?v=2 ">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
   <title>Tu título aquí</title>
@@ -20,31 +20,33 @@
               <div class="imgseleccionadas">
                   <img src="{{ imagen.ImagenDprenda.url }}" alt="imagen seleccionada">
               </div>
-              <!-- Carga de imágenes -->
-            <form class="img" method="post" enctype="multipart/form-data" >
-                {% csrf_token %}
-              <input type="file" name="ImagenDprenda" accept="image/jpeg, image/png" id="image-upload">
-              <label for="image-upload">
-                <i class="fa fa-upload"></i> Subir Imágenes
-              </label>
-              <div id="selected-images-container" class="image-gallery"></div>
-
-              <!-- Botón para enviar imágenes -->
-              <button id="submit-images">Enviar Imágenes</button>
-            </form>
             </div>
             <div class="product-details" id="ai-details-container">
-                    <p> Descripción: Estos zapatos son ideales para actividades deportivas y al aire libre.</p>
-                    <p>Tipo: Zapatos deportivos</p>
-                    <p>Marca: Nike</p>
-                    <p>Talla: 42</p>
-                    <p>Estado: Nuevo</p>
-                    <p>Precio: 28</p>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" class="descripcion" name="descripcion" value="{{ resultado_prediccion.descripcion }}" required>
+
+                    <label for="tipo">Tipo:</label>
+                    <input type="text" class="tipo" name="tipo" value="{{ resultado_prediccion.tipo }}">
+
+                    <label for="talla">Talla:</label>
+                    <input type="number" class="talla" name="talla" value="{{ resultado_prediccion.talla }}" required>
+
+                    <label for="marca">Marca:</label>
+                    <input type="text" class="marca" name="marca" value="{{ resultado_prediccion.marca }}">
+
+                    <label for="estado">Estado:</label>
+                    <input type="text" class="estado" name="condicion" value="{{ resultado_prediccion.estado }}" required>
+
+                    <label for="precio">Precio:</label>
+                    <input type="number" class="precio" name="precio" value="{{ resultado_prediccion.precio }}" required>
 
                     <!-- Botones para Atrás, Editar y Publicar -->
-                    <button id="back-button">Atrás</button>
-                    <button id="edit-button">Editar</button>
-                    <button id="publish-button">Publicar</button>
+                    <button id="back-button" type="button">Atrás</button>
+                    <button type="submit" id="publish-button" name="publicar" value="True">Publicar</button>
+                </form>
                 </div>
           </div>
       </div>
