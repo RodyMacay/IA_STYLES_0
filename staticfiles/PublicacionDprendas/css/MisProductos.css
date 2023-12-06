@@ -1,0 +1,126 @@
+* {
+  background-color: #F1DCDC;
+}
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  gap: 8px;
+}
+.card {
+  background-color: #d0ccca;
+  padding: 16px;
+  margin: 20px;
+  color: #000000;
+  /* Tamaño fijo para las cartas */
+  width: 260px;
+  height: 350px;
+  border-radius: 30px;
+  border: 2px solid #333;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+.footer {
+  grid-area: footer;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+}
+  /* Estilo para el enlace "Inicio" en la barra de navegación */
+  .mproductos-link {
+    text-decoration: none; /* Elimina la decoración de texto predeterminada */
+    font-size: 1em;
+    color: #000000;
+    font-weight: 600;
+    margin: 20px;
+    border-bottom: 6px solid #000000;
+   }
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card h5 {
+  font-size: 16px;
+  margin: 5px 0;
+  background-color: transparent;
+  text-align: center;
+}
+
+.card p {
+  margin: 1px 0;
+  background-color: transparent;
+  text-align: center;
+  padding-bottom: 2px;
+}
+.card a {
+  display: block;
+  color: #fff;
+  padding: 0px 20px;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+  text-align: center;
+  background-color: transparent;
+  color:black;
+}
+.card a:hover {
+  background-color: #adaaaa;
+}
+.card .menu-icon .material-symbols-outlined{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-color: transparent;
+ }
+
+.options {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  border: 1px solid #000000;
+  z-index: 1;
+}
+.options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.options li {
+  padding: 10px;
+  background-color:#F1DCDC;
+}
+.menu-icon:hover .options {
+  display: block;
+}
+.main {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos en una columna */
+}
+.header {
+  background-color: #333; /* Color de fondo de la cabecera */
+  color: #fff; /* Color del texto */
+  padding: 20px; /* Espaciado interno */
+}
+.cards-container {
+  display: flex; /* Organiza las cartas en una fila */
+  justify-content: space-around; /* Distribuye el espacio alrededor de las cartas */
+  flex-wrap: wrap; /* Permite que las cartas se envuelvan si no caben en el ancho */
+}

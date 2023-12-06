@@ -1,0 +1,245 @@
+* {
+    background-color: #F1DCDC;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    gap: 8px;
+}
+
+.footer {
+    grid-area: footer;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+.initial-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #d0ccca;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d0ccca;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.scroll-to-top i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.logo .logo1 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #000000;
+    text-decoration: none;
+    background-color: #d0ccca;
+}
+
+.logo .logo1 i {
+    background-color: #d0ccca;
+}
+
+.logo {
+    background-color: #d0ccca;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    background-color: #d0ccca;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+    background-color: #d0ccca;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    background-color: #d0ccca;
+    position: relative;
+
+  }
+  nav ul li a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color:  #000000;
+    border-radius: 5px;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: .5s;
+  }
+  nav ul li a:hover::after{
+    transform: scaleX(1);
+  }
+
+.search input {
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 28px;
+    background-color: #d0ccca;
+}
+
+.profile img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.profile {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+/* Estilos de la página */
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 18px;
+    margin: 18px 8% 18px 8%;
+  }
+
+  .product-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .product-image {
+    width: 50%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .product-details {
+    width: 50%;
+    font-size: 18px;
+    color: #333;
+    padding: 20px;
+    background-color: #d0ccca;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 20px;
+  }
+  .product-details p {
+
+    background-color: #d0ccca;
+
+  }
+
+  .product-details h1  {
+    background-color: #d0ccca;
+  }
+  .product-details .features strong {
+
+    background-color: #d0ccca;
+
+  }
+  .product-details  .l {
+
+    background-color: #d0ccca;
+
+  }
+  .product-details  .l li {
+
+    background-color: #d0ccca;
+
+  }
+  .cta  {
+
+    background-color: #d0ccca;
+
+  }
+  .cta a {
+
+    background-color: #d0ccca;
+
+  }
+
+
+  .comments {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #d0ccca;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  .comments h2{
+    background-color: #d0ccca;
+  }
+  .comment p{
+    background-color: #d0ccca;
+  }
+/* Estilo para el botón de WhatsApp */
+.cta {
+    text-align: center;
+    margin-top: 20px;
+
+  }
+
+
+  .whatsapp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+
+  }
+
+
+
+  /* Estilo para el ícono de WhatsApp */
+  .whatsapp-button i {
+      margin-left: 10px; /* Espacio entre el texto y el ícono */
+      font-size: 24px; /* Tamaño del ícono */
+      background-color: #d0ccca;
+    }
+    .whatsapp-button:hover {
+      background-color: #25d366; /* Color de WhatsApp */
+    }
