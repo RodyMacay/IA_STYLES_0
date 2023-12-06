@@ -1,1 +1,1 @@
-web: gunicorn "IA STYLES".wsgi
+web: gunicorn Config.wsgi
