@@ -21,9 +21,7 @@
       <li>
         <a class="link-vender" href="{% url 'vender' %}">Vender</a>
       </li>
-      <li class="search">
-        <input type="text" placeholder="Buscar">
-      </li>
+
       <li>
         <a class="material-symbols-outlined">
         contact_support</a>
@@ -41,10 +39,16 @@
                   </ul>
               </div>
           </li>
+        {% if user.is_authenticated %}
       <li class="profile">
         <a href="{% url 'perfil' %}">
-          <img src="{% static 'PublicacionDprendas/img/piccoro.png' %}" alt="Perfil">
+            {% if user.perfil.imagen and user.perfil.imagen.url %}
+          <img src="{{ user.perfil.imagen.url }}" alt="Perfil">
+                {% else %}
+                <img src="{% static 'Usuario/img/piccoro.png' %}">
         </a>
+            {% endif %}
+        {% endif %}
       </li>
       <li class="logout">
         <a href="{% url 'logout' %}" class="material-symbols-outlined">

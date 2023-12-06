@@ -12,27 +12,23 @@
   <div class="edit-profile-container">
     <h2>Editar Perfil</h2>
       <a href="{% url 'perfil' %}" class="back-button">Atrás</a>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" action="{% url 'editar_perfil' %}">
       {% csrf_token %}
-      <!-- Puedes incluir campos adicionales según tu modelo de datos -->
       <label for="nombre">Usuario:</label>
-      <input type="text" id="nombre" name="nombre" value="{{ perfil.usuario.username }}" required>
+      <input type="text" id="nombre" name="username" value="{{ perfil.usuario.username }}" required>
 
-      <label for="titulo">Celular:</label>
-      <input type="text" id="titulo" name="titulo" value="{{ perfil.usuario.celular }}" required>
+      <label for="celular">Celular:</label>
+      <input type="number" id="titulo" name="celular" value="{{ perfil.usuario.celular }}" required>
 
-      <label for="edad">Ciudad:</label>
-      <input type="number" id="edad" name="edad" value="{{ perfil.ciudad }}" required>
+      <label for="ciudad">Ciudad:</label>
+      <input type="text" id="ciudad" name="ciudad" value="{{ perfil.ciudad }}" required>
 
-      <label for="ubicacion">Provincia:</label>
-      <input type="text" id="ubicacion" name="ubicacion" value="{{ perfil.provincia }}" required>
+      <label for="provincia">Provincia:</label>
+      <input type="text" id="ubicacion" name="provincia" value="{{ perfil.provincia }}" required>
 
-      <label for="correo">Correo:</label>
-      <input type="email" id="correo" name="correo" value="{{ perfil.usuario.correo }}" required>
-
-      <label for="sitio_web">Sobre Mi:</label>
-      <input type="url" id="sitio_web" name="sitio_web" value="{{ perfil.sitio_web }}">
-      <input type="file" name="imagen_perfil" accept="image/jpeg, image/png" id="image-upload">
+        <label for="correo">Correo:</label>
+      <input type="email" id="ubicacion" name="correo" value="{{ perfil.usuario.correo }}" required>
+      <input type="file" name="imagen" accept="image/jpeg, image/png" id="image-upload">
               <label class="imgperfil" for="image-upload">
                 <i class="fa fa-upload"></i> Cambiar imagen de perfil
               </label>

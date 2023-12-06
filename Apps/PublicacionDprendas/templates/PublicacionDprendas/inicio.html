@@ -1,39 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- {% extends 'PublicacionDprendas/navbar.html' %}
- {% load static %}
- {% block content %}
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/inicio.css' %}?v=2">
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
- <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
- <title>Tu título aquí</title>
+    {% extends 'PublicacionDprendas/navbar.html' %}
+    {% load static %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/inicio.css' %}? v=2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
+    <title>Tu título aquí</title>
 </head>
 <body>
     {% if messages %}
     <ul id="messages-container" class="messages">
-         {% for mensajes in messages %}
-            <li {% if mensajes.tags %} class="mensaje"{% endif %}>{{ mensajes }}</li>
-            {% endfor %}
-     </ul>
+        {% for mensajes in messages %}
+        <li {% if mensajes.tags %} class="mensaje"{% endif %}>{{ mensajes }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
     {% csrf_token %}
-  <div class="main">
-   {% for dato in datos %}
-    <div class="card">
-      <img src="{{ dato.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{ dato.DetalleIA.descripcion }}">
-      <h5>{{ dato.DetalleIA.descripcion }}</h5>
-      <p class="p">${{ dato.DetalleIA.precio }}</p>
-      <p>estado: {{ dato.DetalleIA.condicion }}</p>
-      <a href="{% url 'detalle' %}">Ver</a>
+    <div id="search-button-container">
+        <button type="button" class="search-button" id="filtrarButton" onclick="openSearchModal()">
+            <i class="fas fa-filter"></i> Filtrar
+        </button>
     </div>
-   {% endfor %}
+    <div class="filtros" id="filtros">
+    <h1 class="titulo-filtro">Filtro de Búsqueda</h1>
+
+    <div class="filtro-categoria">
+        <label for="categoria" class="etiqueta-filtro">Categorías:</label>
+        <select id="categoria0" class="seleccion-filtro">
+            {% for categoria in filtrar.categoria %}
+            <option value="{{ categoria }}">{{ categoria }}</option>
+            {% endfor %}
+        </select>
     </div>
-    <div class="footer">Pie de página</div>
+
+    <div class="filtro-estado">
+        <label for="estado" class="etiqueta-filtro">Estado:</label>
+        <select id="estado0" class="seleccion-filtro">
+            {% for estado in filtrar.condicion %}
+            <option value="{{ estado }}">{{ estado }}</option>
+            {% endfor %}
+        </select>
     </div>
-    <script src="{% static 'Usuario/js/Mensaje.js' %}"></script>
+
+    <button type="button" class="search-button0" onclick="search0()">
+        <i class="fas fa-search"></i> Confirmar
+    </button>
+</div>
+
+
+    <h1 id="rb">Resultados de la Busqueda:</h1>
+    <div id="nb">
+        <h1 >No hay resultados en su Busqueda</h1>
+    </div>
+    <div class="main" id="productos-container">
+        {% for dato in datos %}
+        <div class="card">
+            <img src="{{ dato.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{ dato.DetalleIA.descripcion }}">
+            <h5>{{ dato.DetalleIA.descripcion }}</h5>
+            <p class="p">${{ dato.DetalleIA.precio }}</p>
+            <p>estado: {{ dato.DetalleIA.condicion }}</p>
+            <a href="{% url 'detalle' id_producto=dato.DetalleIA.id %}">Ver</a>
+        </div>
+        {% endfor %}
+
+        <!-- Modal -->
+        <div class="search-modal" id="searchModal">
+            <div class="search-modal-content">
+                <span class="close" onclick="closeSearchModal()">&times;</span>
+
+                <div class="search-options">
+                    <div class="search-option">
+                        <label for="categoria">
+                            <i class="fas fa-folder"></i> Categoría:
+                        </label>
+                        <select id="categoria" name="categoria">
+                            {% for categoria in filtrar.categoria %}
+                            <option value="{{ categoria }}">{{ categoria }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="search-option">
+                        <label for="estado">
+                            <i class="fas fa-check-circle"></i> Estado:
+                        </label>
+                        <select id="estado" name="estado">
+                            {% for condicion in filtrar.condicion %}
+                            <option value="{{ condicion }}">{{ condicion }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <button type="button" class="search-button" onclick="search()">
+                    <i class="fas fa-search"></i> Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+        <script src="{% static 'Usuario/js/Mensaje.js' %}"></script>
+        <script src="{% static 'Usuario/js/modal.js' %}? v=1"></script>
     {% endblock %}
 </body>
 </html>

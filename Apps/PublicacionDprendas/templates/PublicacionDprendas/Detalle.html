@@ -17,23 +17,23 @@
       <div class="product-container">
         <div class="product-image">
           <!-- Imagen del producto -->
-          <img src="{% static 'PublicacionDprendas/img/zapatos-cafes.webp' %}" alt="">
+          <img src="{{ producto.DetalleIA.imagen.ImagenDprenda.url }}" alt="">
         </div>
         <div class="product-details">
           <!-- Detalles del producto -->
-          <h1>Zapatos Deportivos Nike Air Max 2022</h1>
-          <p class="price">Precio: $99.99</p>
+          <h1>{{ producto.DetalleIA.tipo}}</h1>
+          <p class="price">Precio: {{producto.DetalleIA.precio}}</p>
           <p class="description">
-            Los zapatos deportivos Nike Air Max 2022 son la elección perfecta para los amantes del deporte y la comodidad. Con su diseño elegante y tecnología avanzada, te brindarán una experiencia de carrera inigualable.
+              {{ producto.DetalleIA.descripcion}}
           </p>
           <p class="description">
-            Estado: Nuevo
+            Estado: {{ producto.DetalleIA.condicion }}
           </p>
           <p class="features">
             <strong>Características:</strong>
             <ul class="l">
-              <li>Tallas disponibles: 36-45</li>
-              <li>Material superior: Malla transpirable y cuero sintético</li>
+              <li>Talla: {{ producto.DetalleIA.talla }}</li>
+              <li>Marca: {{ producto.DetalleIA.marca}}</li>
               <li>Suela: Goma resistente con tecnología Air Max</li>
               <li>Cierre: Cordones</li>
               <li>Adecuado para: Correr, entrenamiento, deportes al aire libre</li>

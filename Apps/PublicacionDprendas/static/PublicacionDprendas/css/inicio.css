@@ -1,5 +1,5 @@
 * {
-  background-color: #F1DCDC; 
+  background-color: #F1DCDC;
 }
 
 .layout {
@@ -32,7 +32,7 @@
   width: 260px;
   height: 350px;
   border-radius: 30px;
-  border: 2px solid #333;
+  border: 2px solid #721c24;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -103,3 +103,160 @@
   padding: 10px;
   margin: 10px 0;
   }
+
+/*modal*/
+/* Estilos del botón de búsqueda */
+#search-button-container {
+    margin-top: 20px;
+}
+
+.search-button {
+    padding: 10px;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+.search-button0 {
+    cursor: pointer;
+    margin-left: 5px;
+}
+/* Estilos del modal */
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F1DCDC;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-modal-content select {
+    background-color: #d0ccca;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-options {
+    margin-bottom: 20px;
+}
+
+.search-option {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    color: #000000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #d0ccca;
+}
+#filtros{
+    display: none;
+}
+
+
+/* Estilos para el div de filtros */
+.filtros {
+    display: none;
+    border: 1px solid #ddd;
+    padding: 10px; /* Ajuste del padding para hacerlo más compacto */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 550px; /* Ancho máximo ajustado */
+    margin: 0 auto; /* Centrar el div */
+    border-color: #721c24;
+}
+
+/* Estilos para el título del filtro */
+.titulo-filtro {
+    font-size: 20px; /* Tamaño del título reducido */
+    color: #333;
+    margin-bottom: 10px; /* Margen inferior reducido */
+}
+
+/* Estilos para los filtros de categoría y estado */
+.filtro-categoria,
+.filtro-estado {
+    margin-bottom: 10px; /* Margen inferior reducido */
+}
+
+/* Estilos para las etiquetas de los filtros */
+.etiqueta-filtro {
+    display: block;
+    font-size: 14px; /* Tamaño de la etiqueta reducido */
+    color: #555;
+    margin-bottom: 5px; /* Margen inferior reducido */
+}
+
+/* Estilos para las selecciones de filtros */
+.seleccion-filtro {
+    width: 100%; /* Ancho ajustado al 100% para llenar el contenedor */
+    padding: 8px; /* Ajuste del padding */
+    font-size: 14px; /* Tamaño de la fuente reducido */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-button0 {
+    color: #000000;
+    padding: 8px 16px; /* Ajuste del padding */
+    font-size: 16px; /* Tamaño del texto aumentado */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button0:hover {
+    background-color: #d0ccca;
+}
+#rb{
+    display: none;
+}
+#nb{
+    display: none;
+    border: 1px solid #ddd;
+    padding: 10px; /* Ajuste del padding para hacerlo más compacto */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 550px; /* Ancho máximo ajustado */
+    margin: 0 auto; /* Centrar el div */
+    border-color: #721c24;
+
+}

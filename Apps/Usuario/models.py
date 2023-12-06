@@ -18,7 +18,7 @@ class Perfil(models.Model):
     provincia = models.CharField(max_length=200)
     ciudad = models.CharField(max_length=100)
     total_publicaciones = models.IntegerField(default=0)
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True, unique=True)
 
     def __str__(self):
         return self.usuario.username

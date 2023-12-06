@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Usuario
+from .models import Usuario, Perfil
+
 
 class Register_user(forms.ModelForm):
     password1 = forms.CharField(widget=forms.PasswordInput)
@@ -20,8 +21,19 @@ class Register_user(forms.ModelForm):
         return password2
 
 
-
-
 class Login_user(AuthenticationForm):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+class UpdatePerfilform(forms.ModelForm):
+    # Agrega campos adicionales para el usuario
+    username = forms.CharField(max_length=150, required=True)
+    celular = forms.IntegerField(required=False)  # Puedes ajustar esto según tus necesidades
+
+    class Meta:
+        model = Perfil
+        fields = ['imagen', 'provincia', 'ciudad']
+
+class UpdateUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['username', 'celular', 'correo']

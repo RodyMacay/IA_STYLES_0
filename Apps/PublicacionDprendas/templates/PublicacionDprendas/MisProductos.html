@@ -34,7 +34,7 @@
               <h5>{{ producto.DetalleIA.descripcion}}</h5>
               <p class="p">$ {{producto.DetalleIA.precio}}</p>
               <p>estado: {{ producto.DetalleIA.condicion }}</p>
-              <a href="./Detalle.html">Ver</a>
+              <a href="{% url 'detalle' id_producto=producto.DetalleIA.id %}">Ver</a>
             </div>
           {% endfor %}
         </div>

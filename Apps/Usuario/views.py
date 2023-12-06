@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from .models import Usuario, Perfil
-from .forms import Register_user, Login_user
+from .forms import Register_user, Login_user, UpdateUsuarioForm,UpdatePerfilform
+from django.db import IntegrityError
 
 def Login(request):
     mensaje_error = ''
@@ -55,9 +56,34 @@ def PerfilUser (request):
     return render(request, 'Usuario/perfil.html', {
         'datos':perfil
     })
-def Editar_perfil (request):
+def Editar_perfil(request):
+    form_perfil = ''
+    form_usuario = ''
     perfil = get_object_or_404(Perfil, usuario=request.user)
-    return render(request, 'Usuario/editar_perfil.html',
-                  {
-                      'perfil' : perfil
-                  })
+
+    if request.method == 'POST':
+        form_perfil = UpdatePerfilform(request.POST, request.FILES, instance=perfil)
+        form_usuario = UpdateUsuarioForm(request.POST, instance=request.user)
+
+        if form_perfil.is_valid() and form_usuario.is_valid():
+            datos_perfil = form_perfil.save(commit=False)
+            datos_perfil.usuario = request.user
+            datos_perfil.save()
+
+            datos_usuario = form_usuario.save()
+
+            # Actualizar manualmente el username en el perfil
+            perfil.usuario.username = datos_usuario.username
+            perfil.usuario.save()
+
+            return redirect('perfil')
+
+    else:
+        form_perfil = UpdatePerfilform(instance=perfil)
+        form_usuario = UpdateUsuarioForm(instance=request.user)
+
+    return render(request, 'Usuario/editar_perfil.html', {
+        'perfil': perfil,
+        'form_perfil': form_perfil,
+        'form_usuario': form_usuario,
+    })
