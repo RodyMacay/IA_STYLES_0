@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "rock-drake-407623",
+  "private_key_id": "422b997914dfacaaca3882f1a9cc3bc012746d99",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCc7/nMXfqUCJuz\ni4OoV/TfziI+dFAcAU1VsXQUP7MWs3GvFqf05iL2CVxtgtNeOQ5JjAA0Ea3fqkEi\neih/8e5KAsZb3Axk267NW+6Q9J824R6V1h90SYHErMtqbLyzQmMY1a1C8dgAgmny\nXAyxm3gFvxm/ND8vRCWcjE+OCTZBEpKl8JRZ+09buoB4+vWG8ilxcM9L1Vl480Yw\nKB4gpUIfuANO7yr+40k5wMKPCswIS6euxCG88QKFN0//tipYVvxG9ddU8u58XEGL\nqRRg2CWie8OhEKRf6LrjhckLKDbUI6m7Jkhk0qPCTQynpqtbWO+c2F6DZoRg3YHT\n0UVp3pujAgMBAAECggEAAQ0uKchGNqBMifcfbzNqELPQKlLCLj90YrFMYbRZjiEV\nDzZbv4bPnI4y5qLvqQJ0QSblSEDUEhsROHQ3RqaUateHUU2koZ2QZFzY0nM17xRM\nDanzgczaSAfDJySwxCy0mETnCWGwb+ei/Elq//RwNe2lWp20sxISt6OzBsF/pQ9c\nAofyPd2lfnK0ycI+YLaNIKNbwZZRFsiUD1uPyaGTCKQvY4QDqFY4QjxtHSjingAO\nrS9uvt3M2dfjoZptJGhFnEM4kK7ZImMsqJOzPR9tnkPbnIicBCgEMOBdi9H7VUgH\nt1riIgODSWokQv2eNEHo0PR0n5Ka2f1FICFDiBGSdQKBgQDN2qhBn4Nblbk1wU1w\n5sAZfuJlIMun7/TlHwRIcw0sLPR1nRvHIbzqn/+zCYhDp7pJDKfpzGhWVnumppq4\nyNCYb3qNDFUXXUDiY8X8fKZsYW9bG7lngj6NilUwsWwPnxXMzSzPgdCXuZ2Wdhsl\nwdjhLpDXMxWsMBP/Yign8siglwKBgQDDKs4j2OidBk+gnYpXWd4VyKVjfsYi7jkt\n+WYYuoAz5+iseiV+XG8wr2SB+YePYb+snX/HXF06aWs4ijivKk5aM7ITtigP4tGJ\nKTGdnuS+Cejbuo62GAFPSKhkASjLlFbqZ+HeCnOAJ1XO95sIcQgHoV4akNawjJlJ\nMT6BQfiy1QKBgQCp/i+EQZ3QO8w+v+qbmXJ5m3aJ3JNRk67ApuR6j8gI+vbFSYBu\n6UWA26/kwbJtbE1Bldn0EID5C2IBNQQAJJVdzHF/mPeL286BJbOR1b35Ml0q97Ib\n8EqHx/yhwWJjZBQ0lBq1IZaINRgV8GJqw7G+Ax5JGD6Few6Ijx5qHuve8QKBgGJb\nPDAMrI4WFCMZwhJrk+TejZsq1Kfd7qsguTdVJi8CfNwPYr3fz5l1iu2F16+Gz5Yq\nea76+XDql8KSxiZg58PFscUFVANNh9PcEskgvp6XV+cEic9zIZXXRCXB/9E5HORd\nHhNMqRC4wiHf3x3N+QH/bPFudQPcl5OvYZS6rp9RAoGAUTUMH5VgEQGa+8yRZuBx\ne3qQRv2lmETbSM4i9wWCDo9g5BtUNg4o/FZXzUgEuYCX1sZf8wqf4iv4VclCPdv+\nu6jSsDZ0XlHXwPpuZ7Cy/9zJ3c+HCk5VtyGTDNRTWNApAC4M+LnON2xUvU8ovjZg\negHNm9so/cuMXncU3dBMOGA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "styles001@rock-drake-407623.iam.gserviceaccount.com",
+  "client_id": "105012347840466162706",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/styles001%40rock-drake-407623.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
