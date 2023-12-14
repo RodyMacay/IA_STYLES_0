@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/MisProductos.css' %}?v=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
-    <title>Tu título aquí</title>
+      <title>IA STYLES</title>
+    <link rel="icon" href="{% static 'PublicacionDprendas/img/favicon.png' %}" type="image/png">
   </head>
   <body>
     {% csrf_token %}
@@ -32,7 +33,7 @@
               </div>
               <img src="{{ producto.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{producto.DetalleIA.descripcion }}">
               <h5>{{ producto.DetalleIA.descripcion}}</h5>
-              <p class="p">$ {{producto.DetalleIA.precio}}</p>
+              <p class="p">{{ producto.DetalleIA.precio.currency }} ${{ producto.DetalleIA.precio.amount }}</p>
               <p>estado: {{ producto.DetalleIA.condicion }}</p>
               <a href="{% url 'detalle' id_producto=producto.DetalleIA.id %}">Ver</a>
             </div>

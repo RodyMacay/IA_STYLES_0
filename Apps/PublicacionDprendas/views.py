@@ -11,7 +11,7 @@ from django.http import JsonResponse, Http404
 def Inicio(request):
     datos = Publicacion.objects.all()
     for dato in datos:
-        print(f"Nombre: {dato.DetalleIA.descripcion}, Precio: {dato.DetalleIA.precio}, Estado: {dato.DetalleIA.condicion}")
+
         if dato.DetalleIA.imagen.ImagenDprenda:
             print(f"Imagen: {dato.DetalleIA.imagen.ImagenDprenda.url}")
         else:
@@ -49,10 +49,13 @@ def Detalle(request,id_producto):
     url = reverse('detalle', kwargs={'id_producto': producto.id})
     return render(request, 'PublicacionDprendas/Detalle.html',{
         'url': url,
-        'producto': producto
+        'producto': producto,
     })
 
 
+
+from django.http import JsonResponse
+import json
 
 def buscar(request):
     categoria = request.GET.get('categoria')
@@ -62,7 +65,14 @@ def buscar(request):
     resultados = DetalleIA.objects.filter(tipo=categoria, condicion=estado)
 
     # Convertir los resultados a formato JSON
-    resultados_json = [{'descripcion': item.descripcion,'precio':item.precio,'condicion': item.condicion, 'imagen_url': item.imagen.ImagenDprenda.url} for item in resultados]
+    resultados_json = [
+        {
+            'descripcion': item.descripcion,
+            'precio': str(item.precio),  # Convertir a str u otro formato JSON-friendly
+            'condicion': item.condicion,
+            'imagen_url': item.imagen.ImagenDprenda.url
+        } for item in resultados
+    ]
 
     # Devolver los resultados de la búsqueda como JSON
     return JsonResponse({'resultados': resultados_json})

@@ -8,6 +8,8 @@ from Apps.ReconocimientosDPrecio.models import Imagenes
 from Apps.Usuario.models import Perfil
 from django.shortcuts import get_object_or_404
 import os
+
+from ..IA_models.apigoogle import prediccion_prenda_vision
 from ..IA_models.procesamiento import prediccion_prenda
 from ..PublicacionDprendas.models import Publicacion
 
@@ -29,27 +31,30 @@ def Vender(resquest):
     return render(resquest, 'vender.html')
 
 
-def DetalleIA (request, imagen_id):
+def DetalleIA(request, imagen_id):
     imagen = get_object_or_404(Imagenes, id=imagen_id)
     image_path = os.path.join('media', str(imagen.ImagenDprenda))
     print(imagen)
-    form = ""
     prediction_result = prediccion_prenda(image_path)
+    # Inicializa el formulario tanto para POST como para GET
     if request.method == 'POST':
+        print(request.POST)
         form = DetalleIAForm(request.POST)
         if form.is_valid():
             detalles = form.save(commit=False)
-            detalles.imagen_id=imagen_id
+            detalles.imagen_id = imagen_id
             detalles.save()
-            New_publicacion=Publicacion (DetalleIA=detalles)
+            New_publicacion = Publicacion(DetalleIA=detalles)
             New_publicacion.save()
             messages.success(request, 'DETALLES ENVIADOS EXITOSAMENTE.')
             return redirect('inicio')
         else:
             print('error')
+            print(form.errors)
     else:
-        print('error')
-    return render(request,'DetalleIA.html', {
+        form = DetalleIAForm()  # Inicializa el formulario para el caso GET
+
+    return render(request, 'DetalleIA.html', {
         'imagen': imagen,
         'resultado_prediccion': prediction_result,
         'form': form

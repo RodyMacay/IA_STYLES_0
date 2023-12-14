@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="{% static 'PublicacionDprendas/css/inicio.css' %}? v=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <link rel="icon" href="{% static 'PublicacionDprendas/img/favicon.png' %}" type="image/png">
     <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
-    <title>Tu título aquí</title>
+      <title>IA STYLES</title>
 </head>
 <body>
     {% if messages %}
@@ -63,7 +63,8 @@
         <div class="card">
             <img src="{{ dato.DetalleIA.imagen.ImagenDprenda.url }}" alt="{{ dato.DetalleIA.descripcion }}">
             <h5>{{ dato.DetalleIA.descripcion }}</h5>
-            <p class="p">${{ dato.DetalleIA.precio }}</p>
+            <p class="p">{{ dato.DetalleIA.precio.currency }} ${{ dato.DetalleIA.precio.amount }}</p>
+
             <p>estado: {{ dato.DetalleIA.condicion }}</p>
             <a href="{% url 'detalle' id_producto=dato.DetalleIA.id %}">Ver</a>
         </div>
@@ -105,7 +106,7 @@
         </div>
     </div>
         <script src="{% static 'Usuario/js/Mensaje.js' %}"></script>
-        <script src="{% static 'Usuario/js/modal.js' %}? v=1"></script>
+        <script src="{% static 'Usuario/js/modal.js' %}?v=1"></script>
     {% endblock %}
 </body>
 </html>

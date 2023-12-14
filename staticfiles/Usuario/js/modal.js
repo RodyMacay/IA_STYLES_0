@@ -28,11 +28,12 @@ function search() {
                         <div class="card">
                             <img src="${producto.imagen_url}">
                             <h5>${producto.descripcion}</h5>
-                            <p class="p">$${producto.precio}</p>
+                            <p class="p">$${producto.precio.currency} ${producto.precio.amount}</p>
                             <p>Estado: ${producto.condicion}</p>
                             <a href="{% url 'detalle' %}">Ver</a>
                         </div>
                     `;
+
                     // Agregar el nuevo producto al contenedor en la página
                     document.getElementById("productos-container").innerHTML += nuevoProductoHTML;
                     document.getElementById("rb").style.display="block"

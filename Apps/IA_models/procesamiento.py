@@ -91,7 +91,25 @@ def clasificar_tipo(imagen_path):
     return tipo_label, decoded_predictions[0][2]
 
 
-def prediccion_prenda( imagen_path):
+def predecir_estado_y_precio(tipo_label):
+    # Mapear tipos de prendas a estados y precios
+    tipos_a_estados_y_precios = {
+        'Vestido': {'estado': 'Nuevo', 'precio': 50},
+        'Camiseta': {'estado': 'Usado', 'precio': 20},
+        'Jersey': {'estado': 'Nuevo', 'precio': 30},
+        # Agregar más tipos de prendas según sea necesario
+    }
+
+    # Obtener el estado y precio para el tipo de prenda clasificado
+    if tipo_label in tipos_a_estados_y_precios:
+        resultado = tipos_a_estados_y_precios[tipo_label]
+    else:
+        # Si el tipo de prenda no está en el mapeo, asignar un valor predeterminado
+        resultado = {'estado': 'usado', 'precio': 0}
+
+    return resultado
+
+def prediccion_prenda(imagen_path):
     imagen_original = cv2.imread(imagen_path)
     imagen_sin_fondo = quitar_fondo(imagen_original)
     color_clasificado = clasificar_color(imagen_sin_fondo)
@@ -100,10 +118,11 @@ def prediccion_prenda( imagen_path):
 
     tipo_nombre_legible = ' '.join([word.capitalize() for word in tipo_label.split('_')])
     translator = Translator()
-    precio=0
-    talla=0
-    marca=""
-    estado=""
+    precio = 0
+    talla = 0
+    marca = ""
+    estado_y_precio = predecir_estado_y_precio(tipo_label)
+
     try:
         descripcion_espanol = translator.translate(tipo_nombre_legible, src='en', dest='es')
         if descripcion_espanol.text:
@@ -113,6 +132,14 @@ def prediccion_prenda( imagen_path):
     except Exception as e:
         description = f"Error al traducir: {e}. Descripción predeterminada: {tipo_nombre_legible} {nombre_color}"
 
-    return {'color': nombre_color, 'tipo': tipo_nombre_legible, 'descripcion': description, 'precio': precio,'talla': talla,'marca': marca, 'estado': estado, }
+    return {
+        'color': nombre_color,
+        'tipo': tipo_nombre_legible,
+        'descripcion': description,
+        'precio': estado_y_precio['precio'],
+        'talla': talla,
+        'marca': marca,
+        'estado': estado_y_precio['estado'],
+    }
 
 modelo_resnet = cargar_modelo()
